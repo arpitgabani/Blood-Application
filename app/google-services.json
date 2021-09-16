@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "123483283518",
+    "project_id": "blood-app-ca80f",
+    "storage_bucket": "blood-app-ca80f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123483283518:android:0c589f0abdc230c57cf16f",
+        "android_client_info": {
+          "package_name": "com.bloodapp.bda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123483283518-45d5tuj51rmhcp267ej84dpqhpngq94r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bloodapp.bda",
+            "certificate_hash": "f5da4f4e248c33325b4a2ca09010d4cd94b2baf4"
+          }
+        },
+        {
+          "client_id": "123483283518-am18e97jihkerla6jcpjrurm9aju51l8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-7E-TRjt3ruoKJicnVjP0uatgBOa6SUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123483283518-am18e97jihkerla6jcpjrurm9aju51l8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
