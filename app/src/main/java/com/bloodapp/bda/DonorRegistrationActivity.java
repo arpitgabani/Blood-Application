@@ -43,7 +43,8 @@ public class DonorRegistrationActivity extends AppCompatActivity {
 
     private CircleImageView profile_image;
 
-    private TextInputEditText registerFullName, registerIdNumber, registerPhoneNumber, registerEmail, registerPassword;
+    private TextInputEditText registerFullName, registerIdNumber,
+            registerCityName, registerPhoneNumber, registerEmail, registerPassword;
 
     private Spinner bloodGroupsSpinner;
 
@@ -55,6 +56,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference userDatabaseRef;
+
 
 
     @Override
@@ -74,6 +76,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
         profile_image = findViewById(R.id.profile_image);
         registerFullName = findViewById(R.id.registerFullName);
         registerIdNumber = findViewById(R.id.registerIdNumber);
+        registerCityName = findViewById(R.id.registerCityName);
         registerPhoneNumber = findViewById(R.id.registerPhoneNumber);
         registerEmail = findViewById(R.id.registerEmail);
         registerPassword = findViewById(R.id.registerPassword);
@@ -89,7 +92,6 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
-
             }
         });
 
@@ -100,6 +102,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                 final  String password = registerPassword.getText().toString().trim();
                 final  String fullName = registerFullName.getText().toString().trim();
                 final  String idNumber = registerIdNumber.getText().toString().trim();
+                final  String cityName = registerCityName.getText().toString().trim();
                 final  String phoneNumber = registerPhoneNumber.getText().toString().trim();
                 final  String  bloodGroup = bloodGroupsSpinner.getSelectedItem().toString();
 
@@ -113,11 +116,6 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(TextUtils.isEmpty(email)){
-                    registerEmail.setError("Password is required!!");
-                    return;
-                }
-
                 if(TextUtils.isEmpty(fullName)){
                     registerFullName.setError("Fullname is required!!");
                     return;
@@ -125,6 +123,11 @@ public class DonorRegistrationActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(idNumber)){
                     registerIdNumber.setError("Id Number is required!!");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(cityName)){
+                    registerIdNumber.setError("City Name is required!!");
                     return;
                 }
 
@@ -159,6 +162,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                                 userInfo.put("name", fullName);
                                 userInfo.put("email", email);
                                 userInfo.put("idnumber", idNumber);
+                                userInfo.put("cityname", cityName);
                                 userInfo.put("phonenumber", phoneNumber);
                                 userInfo.put("bloodgroup", bloodGroup);
                                 userInfo.put("type", "donor");
@@ -188,7 +192,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                                         e.printStackTrace();;
                                     }
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
                                     byte[] data = byteArrayOutputStream.toByteArray();
                                     UploadTask uploadTask = filePath.putBytes(data);
 
@@ -237,12 +241,7 @@ public class DonorRegistrationActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                     loader.dismiss();
-
-
-
                                 }
-
-
                             }
 
                         }

@@ -116,6 +116,26 @@
                     app:hintTextAppearance="@color/colorPrimary"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/registerCityName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter City Name"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        android:textColorHint="#000"
+                        android:drawableStart="@drawable/ic_city"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextInputLayoutStyle"
+                    app:boxStrokeColor="#000"
+                    app:hintTextAppearance="@color/colorPrimary"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/registerPhoneNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -179,7 +199,7 @@
                         android:textColor="#000"
                         android:textSize="18sp"
                         android:textColorHint="#000"
-                        android:drawableStart="@drawable/ic_phone"/>
+                        android:drawableStart="@drawable/ic_lock"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
